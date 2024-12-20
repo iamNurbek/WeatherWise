@@ -1,4 +1,4 @@
-package com.example.weatherapp;
+package src.com.example.weatherapp;
 
 public class WeatherWise {
     public static void main(String[] args) {
