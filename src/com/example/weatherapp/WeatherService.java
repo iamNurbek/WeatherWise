@@ -21,5 +21,32 @@ public class WeatherService {
         HttpURLConnection connection = null;
         BufferedReader reader = null;
 
+        try {
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode != 200) {
+                throw new RuntimeException("Failed to fetch weather data. HTTP Response Code: " + responseCode);
+            }
+
+            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+
+            return new JSONObject(response.toString());
+
+        } finally {
+            if (reader != null) {
+                reader.close();
+            }
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
     }
 }
