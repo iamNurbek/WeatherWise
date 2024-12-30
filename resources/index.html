@@ -12,16 +12,17 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=API_GO_HERE"></script>
     <script>
-        function initMap() {
-            const location = { lat: 59.4236, lng: 27.1525 };
+        function initMap(latit, longit) {
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 8,
-                center: location,
+                center: { lat: latit, lng: longit },
             });
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map,
-            });
+
+            new google.maps.Marker({
+                position: { lat: latit, lng: longit },
+                map,
+                title: "Hello World!",
+            })
         }
 
         initMap();
