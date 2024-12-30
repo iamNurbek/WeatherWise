@@ -1,4 +1,6 @@
 package src.com.example.weatherapp;
+import org.json.JSONObject;
+import java.util.Scanner;
 
 public class WeatherWise {
     public static void main(String[] args) {
