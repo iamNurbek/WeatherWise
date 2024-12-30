@@ -81,5 +81,6 @@
     - Use Python's HTTP server to serve the index.html file:
     ```bash
     python -m http.server 8081
+    ```
     - Open your browser and navigate to http://localhost:8081
 
